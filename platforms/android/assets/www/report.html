@@ -1,0 +1,316 @@
+<html >
+  <head>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+   <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link href="http://getbootstrap.com/examples/justified-nav/justified-nav.css" rel="stylesheet">
+
+    <style>
+	table{
+		border:1px solid white;
+	}
+	body:before {
+		  content: "";
+		  display: block;
+		  position: fixed;
+		  left: 0;
+		  top: 0;
+		  width: 100%;
+		  height: 100%;
+		  z-index: -10;
+		  background: url('img/bg.png') no-repeat center center;
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+}
+	body{
+	 
+	  
+	  color:white;
+	}
+        .axis path {
+            fill: none;
+            stroke: #777;
+            shape-rendering: crispEdges;
+        }
+        .axis text {
+            font-family: Lato;
+            font-size: 13px;
+        }
+		#back{
+			width:10%;
+			z-index:2000;
+			position:absolute;
+			top:5%;
+			left:5%;
+			cursor:pointer;
+			   -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+			filter: url(#drop-shadow);
+			
+			
+		}
+       #donutchart {
+        height: 70vh;
+        width: 90vw;
+		padding: 0px 0 0 0;
+		position:absolute;
+		top:20; left:0; right:0; bottom:0;
+		margin:auto;
+
+		
+       }
+	   #donutchart2 {
+        height: 70vh;
+        width: 90vw;
+		padding: 0px 0 0 0;
+		position:absolute;
+		top:1000; left:0; right:0; bottom:0;
+		margin:auto;
+
+		
+       }
+	   
+	   
+	
+	   
+	   #donutchart1 {
+			text-align: center;
+			width: 100%;
+			position:absolute;
+			top:0; left:0; right:0; bottom:0;
+			margin:auto;
+			padding: 60px 0 0 0;
+			font-size:20px;
+       }
+	   
+	   #donutchart3 {
+			text-align: center;
+			width: 100%;
+			position:absolute;
+			top:80; left:0; right:0; bottom:0;
+			margin:auto;
+			padding: 50px 0 0 0;
+			font-size:20px;
+       }
+	   #donutchart5 {
+			text-align: center;
+			width: 100%;
+			position:absolute;
+			top:-100; left:0; right:0; bottom:0;
+			margin:auto;
+			padding: 850px 0 0 0;
+			font-size:20px;
+       }
+	   #donutchart6 {
+			text-align: center;
+			width: 100%;
+			position:absolute;
+			top:1200; left:0; right:0; bottom:0;
+			margin:auto;
+			padding: 850px 0 0 0;
+			font-size:40px;
+       }
+	   
+	   #donutchart8 {
+			text-align: center;
+			width: 100%;
+			position:absolute;
+			top:1000; left:0; right:0; bottom:0;
+			margin:auto;
+			padding: 850px 0 0 0;
+			font-size:40px;
+       }
+	   #visualisation{
+			text-align: center;
+			width: 90%;
+			height:100%;
+			position:absolute;
+			top:300; left:0; bottom:0;
+			margin:auto;
+			padding: 50px 0 0 0;
+			font-size:40px;
+	   }
+	   
+	   
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Food ',     11],
+          ['Transportation ',      2],
+          ['Event',  2],
+          ['Notice', 2],
+          ['Lost and found',    7],
+		  ['Complaint / feedback',    7]
+        ]);
+
+        var options = {
+		 fontSize: 12, // 12, 18 whatever you want (don't specify px)
+         bold: true,
+
+         pieHole: 0.4,
+		 'chartArea': {'width': '100%', 'height': '50%'},
+		 hAxis:{
+			color: 'white',
+			}
+         legend: {
+            position: 'bottom',
+            }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  </head>
+  <body >
+ 
+<img id='back' src='img/back3.png'  onclick='window.location=`map.html`'/>
+
+	<span id="donutchart3" >Demand and Supplies Trends</span>
+	<svg id="visualisation" width="100%" height="300" ></svg>
+            <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+            <script>
+                function InitChart() {
+				
+                    var data = [{
+                        "sale": "202",
+                        "year": "2000"
+                    }, {
+                        "sale": "215",
+                        "year": "2002"
+                    }, {
+                        "sale": "179",
+                        "year": "2004"
+                    }, {
+                        "sale": "199",
+                        "year": "2006"
+                    }, {
+                        "sale": "134",
+                        "year": "2008"
+                    }, {
+                        "sale": "176",
+                        "year": "2010"
+                    }];
+                    var data2 = [{
+                        "sale": "152",
+                        "year": "2000"
+                    }, {
+                        "sale": "189",
+                        "year": "2002"
+                    }, {
+                        "sale": "179",
+                        "year": "2004"
+                    }, {
+                        "sale": "199",
+                        "year": "2006"
+                    }, {
+                        "sale": "234",
+                        "year": "2008"
+                    }, {
+                        "sale": "276",
+                        "year": "2010"
+                    }];
+                    var vis = d3.select("#visualisation"),
+                        WIDTH = 500,
+                        HEIGHT = 300,
+                        MARGINS = {
+                            top: 20,
+					
+                            right: 20,
+                            bottom: 20,
+                            left: 50
+                        },
+                        xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2000, 2010]),
+                        yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([134, 215]),
+                        xAxis = d3.svg.axis()
+                        .scale(xScale),
+                        yAxis = d3.svg.axis()
+                        .scale(yScale)
+                        .orient("left");
+                    
+                    vis.append("svg:g")
+                        .attr("class", "x axis")
+						 .attr('stroke', 'white')
+                        .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+                        .call(xAxis);
+                    vis.append("svg:g")
+                        .attr("class", "y axis")
+						 .attr('stroke', 'white')
+                        .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+                        .call(yAxis);
+                    var lineGen = d3.svg.line()
+                        .x(function(d) {
+                            return xScale(d.year);
+                        })
+                        .y(function(d) {
+                            return yScale(d.sale);
+                        })
+                        .interpolate("basis");
+                    vis.append('svg:path')
+                        .attr('d', lineGen(data))
+                        .attr('stroke', 'green')
+                        .attr('stroke-width', 2)
+                        .attr('fill', 'none');
+                    vis.append('svg:path')
+                        .attr('d', lineGen(data2))
+                        .attr('stroke', 'blue')
+                        .attr('stroke-width', 2)
+                        .attr('fill', 'none');
+						
+                }
+                InitChart();
+            </script></div>
+			<span id="donutchart5"  >Top Keywords</span>
+			<table border=1 id="donutchart6" style=' width:90%;' >
+				<tr>
+					<th style="font-size:15px; text-align:center">Rank</th>
+					<th style="font-size:15px; text-align:center">Keyword</th>
+					<th style="font-size:15px; text-align:center">Time</th>
+				</tr>
+				<tr>
+					<td style="font-size:12px; text-align:center">1</td>
+					<td style="font-size:12px; text-align:center">Pizza</td>
+					<td style="font-size:12px; text-align:center"><div class="w3-light-grey">
+  <div class="w3-green" style="height:24px;width:85%;font-size:15;"><center>1,256,356</center></div></td>
+				</tr>
+				
+				<tr>
+					<td style="font-size:12px; text-align:center">2</td>
+					<td style="font-size:12px; text-align:center">Sell</td>
+					<td style="font-size:12px; text-align:center"><div class="w3-light-grey">
+  <div class="w3-green" style="height:24px;width:70%;font-size:15;"><center>856,453</center></div></td>
+				</tr>
+				
+				<tr>
+					<td style="font-size:12px; text-align:center">3</td>
+					<td style="font-size:12px; text-align:center">Join us</td>
+					<td style="font-size:12px; text-align:center"><div class="w3-light-grey">
+  <div class="w3-green" style="height:24px;width:65%;font-size:15;"><center>658,497</center></div></td>
+				</tr>
+				<tr>
+					<td style="font-size:12px; text-align:center">4</td>
+					<td style="font-size:12px; text-align:center">Uniten</td>
+					<td style="font-size:12px; text-align:center"><div class="w3-light-grey">
+  <div class="w3-green" style="height:24px;width:60%;font-size:15;"><center>531,785</center></div></td>
+				</tr>
+				<tr>
+					<td style="font-size:12px; text-align:center">5</td>
+					<td style="font-size:12px; text-align:center">Hackathon</td>
+					<td style="font-size:12px; text-align:center"><div class="w3-light-grey">
+  <div class="w3-green" style="height:24px;width:55%;font-size:15;"><center>432,142</center></div></td>
+				</tr>
+			</table>
+			
+			 <div id="donutchart8"></div>
+			
+			
+  </body>
+</html>

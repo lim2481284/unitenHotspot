@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+	<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		i{
+			padding-right:10%;
+		}
+	
+	</style>
+	<title>UNITEN HOTSPOT</title>
+</head>
+<body>
+
+	<!-- add notification --> 
+	<div id='notification'>
+		<div id="notifyDiv" class="notify">
+			 <a href="javascript:void(0)" class="closebtn" onclick="closeNoti()">&times;</a>
+			 <p id='noti_message'></p>
+		</div>
+	</div>
+	<!-- end notification --> 
+	
+	
+	<div id='top_menu'>
+		<a href="javascript:void(0)" class="closebtn" onclick="openNav()"><img src='img/menu2.png'/></a>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  
+		  <a onclick="window.location='list.html'"><i class="fa fa-list-ul"></i>List View</a>
+		   <a onclick="window.location='report.html'" class='admin'><i class="fa fa-area-chart"></i>Report</a>
+		   <a onclick="publishNoti()" class='admin'><i class="fa fa-bullhorn"></i>Notification</a>
+		     <a href="#"><i class="fa fa-certificate"></i>Setting</a>
+		    <a href="#"><i class="fa fa-child"></i>About Us</a>
+			<a href="#"><i class="fa fa-comment-o"></i>Help</a>
+			<a onclick="window.location='login.html'"><i class="fa fa-arrow-circle-left"></i>Logout</a>
+		</div>
+    </div>	
+
+    <div id="map"></div>
+	<!-- footerr 
+	<div id='footer'>
+		<div id="myBtmnav" class="btmnav">
+			 <a href="javascript:void(0)" class="closebtn" id="btm">&times;</a>
+			  <a href="#">About</a>
+			  <a href="#">Services</a>
+			  <a href="#">Clients</a>
+			  <a href="#">Contact</a>
+		</div>
+
+	</div>
+	
+	-->
+</body>
+<script src="js/api.js"></script>
+<script src="js/map.js"></script>
+<script src="js/googlemap.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqUiYyFs38J1kNpp_gR8OZPwB7yRJXma8&callback=initMap">
+</script>
+</html>

@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/table.css"/>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<style>
+	
+	#back{
+		width:10%;
+		z-index:2000;
+		position:absolute;
+		top:5%;
+		left:5%;
+		cursor:pointer;
+		   -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+		filter: url(#drop-shadow);
+		
+		
+	}
+	#body{
+		margin-top:20%;
+		color:white;
+		font-family: "Roboto", sans-serif;
+	}
+	
+	body{
+		color:white;
+	}
+	
+		body:before {
+		  content: "";
+		  display: block;
+		  position: fixed;
+		  left: 0;
+		  top: 0;
+		  width: 100%;
+		  height: 100%;
+		  z-index: -10;
+		  background: url('img/bg.png') no-repeat center center;
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+}
+	#list > a > img{
+		width:17% !important;
+	
+	}
+	</style>
+	
+	
+	
+</head>
+<body>
+<img id='back' src='img/back3.png'  onclick='window.location=`map.html`'/>
+	<div id='body'>
+	<center><h2>List View</h2></center>
+	<div>
+  
+	<div id="list"></div>
+	</div>
+		
+	</table>
+		
+	</body>
+</body>
+</html>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBkpGYDt7QqxQEBLFi4Jt1yzGcd0Lnuu6Y",
+    authDomain: "unitenhackhaton.firebaseapp.com",
+    databaseURL: "https://unitenhackhaton.firebaseio.com",
+    projectId: "unitenhackhaton",
+    storageBucket: "unitenhackhaton.appspot.com",
+    messagingSenderId: "801016906115"
+  };
+  firebase.initializeApp(config);
+  
+  
+</script>
+<script src="js/firebase.js"></script>
+<script>
+
+
+</script>

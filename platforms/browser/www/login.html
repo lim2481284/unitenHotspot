@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/login.css"> 
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div class="app">
+        <div id="deviceready" class="blink">
+            <div class="login-page">
+                  <div class="form">
+                        <center><img src = 'img/uniten.png' class='logo'> </center>
+                        <!--  <h1 style='color:#76b852; border-color:grey;margin:3%;'> i-PreDi </h1> -->
+                        <input type="text" name="username" placeholder="username"  id='user' required/>
+                        <input type="password" name="password" placeholder="password"  required/>
+                        <button name="login" onclick="checkUser()">login</button>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+	function checkUser()
+	{
+		var user = $('#user').val();
+		if(user == "Admin")
+		{
+			  window.localStorage.setItem("role", "admin");
+		}
+		else if ( user =="Chew")
+		{
+			  window.localStorage.setItem("role", "student");
+	
+		}
+		else 
+		{
+			alert("Please fill in the field");
+			return false;
+		}
+		window.location='map.html'
+	}
+	
+        app.initialize();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<html>
+<head>
+	<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	
+	<style>
+			
+			
+		#back{
+			width:10%;
+			z-index:2000;
+			position:absolute;
+			top:5%;
+			left:5%;
+			cursor:pointer;
+			  -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+			filter: url(#drop-shadow);
+			
+			
+		}
+		html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+		#map {
+        height: 50vh;
+        width: 90vw;
+       }
+	   
+	   #container {
+       
+        width: 90vw !important;
+       }
+	   
+	   
+	   .commentList{
+	   position:relative;
+	   float:left;
+			width:100%;
+			border-bottom:1px solid #F0F0F0;
+
+	   }
+	   
+	   .comment{
+	   position:relative;
+	   float:left;
+			width:100%;
+			border:none;
+			margin-bottom:3%;
+
+			 outline: none;
+			 margin-right:5%;
+			 padding-bottom:2%;
+	   }
+	   
+	   #post{
+	   	margin-bottom:3%;
+			border:none;
+			background-color:#7cafd9;
+				 padding-bottom:1%;
+				 padding-top:1%;
+				 color:white;
+			width:100%;
+	   }
+	   #name{
+		color:white;
+		 text-shadow: 2px 2px black;
+	   }
+	   
+	</style>
+</head>
+
+<body class="w3-light-grey">
+<img id='back' src='img/back3.png'  onclick='window.location=`map.html`'/>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:100%;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4" id='container'>
+        <div class="w3-display-container">
+          <div id="map"></div>
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2 id="name"></h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p id="Categories"></p>
+          <p id="type"></p>
+		  <p>Description :</p>
+          <p id="description"></p>
+          <hr>
+		  <div id='commentArea'>
+			<div class='commentList'> 
+				<div style='width:70%'>
+					<input type='text' class='comment' id='userComment' placeholder="Comment"/>
+				</div>
+				<div style='20%'>
+					<button id='post' type='button'>Post</button>
+				</div>
+			</div>
+			
+		  </div>
+
+          </div>
+			
+</body>
+<script src="js/api.js"></script>
+<script>
+var data=JSON.parse(localStorage.getItem("current_details"));
+
+
+	$(document).ready(function(){
+		//console.log(JSON.parse(localStorage.getItem("current_details")));
+		var data=JSON.parse(localStorage.getItem("current_details"));
+		
+		var k=localStorage.getItem("current_key");
+		fire.getComment(k);
+		console.log(data);
+		$('#lat').html(data.lat);
+		$('#long').html(data.long);
+		$('#name').html(data.name);
+		$('#description').html(data.description);
+		$('#Categories').html("Categories : "+data.type );
+		$('#type').html("Type : " + data.needgive.type  );
+		
+		 $("#post").click(function(){
+			var fire=new Api();
+			var msg = $('#userComment').val();
+			$('#userComment').val('');
+			fire.writeComment(k,msg,"Chew");
+		});
+	
+		});
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 15,
+			center: {lat: parseFloat(data.lat), lng: parseFloat(data.long) },
+			disableDefaultUI: true
+			
+			}
+			
+			);
+			getMarker1(map);
+		
+			
+			
+			
+		}
+		
+		function getMarker1(map){
+			
+			
+			var marker=new google.maps.Marker({
+				position: {lat: parseFloat(data.lat), lng: parseFloat(data.long)},
+				map: map,
+				animation: google.maps.Animation.DROP,
+				title:"Hello World!",
+				draggable:false
+			});
+		
+		}
+	
+	
+	
+
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqUiYyFs38J1kNpp_gR8OZPwB7yRJXma8&callback=initMap">
+</script>
+</html>
+
+<script>
+	$(document).ready(function(){
+   
+});
+</script>
